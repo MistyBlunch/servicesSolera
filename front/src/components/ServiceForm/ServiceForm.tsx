@@ -8,10 +8,18 @@ export interface ServiceFormInterface {
 }
 
 const ServiceForm = (props: any) => {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, reset } = useForm()
 
   const onSubmitFn = (data: any) => {
     props.passData(data)
+  }
+
+  const cancel = () => {
+    reset({
+      name: '',
+      description: '',
+      category: '',
+    })
   }
 
   return (
@@ -48,7 +56,9 @@ const ServiceForm = (props: any) => {
           <Button variant="outline-success" type="submit">
             Grabar
           </Button>
-          <Button variant="outline-danger">Cancelar</Button>
+          <Button variant="outline-danger" onClick={cancel}>
+            Cancelar
+          </Button>
         </Card.Footer>
       </Card>
     </Form>
