@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 
 export interface ServicesNavInterface {
-  serviceData?: {}
+  services?: {}
 }
 
 const ServicesNav: React.FC<ServicesNavInterface> = ({
-  serviceData,
+  services,
 }: any) => {
   let categories = ['Todos', 'Autos', 'Salud', 'Hogar']
   let data = [
@@ -40,7 +40,7 @@ const ServicesNav: React.FC<ServicesNavInterface> = ({
   let servicesByCat: any[] = []
 
   const filterServicesByCat = (category: string) => {
-    console.log('uwu', category, serviceData)
+    console.log('uwu', category, services)
     // servicesByCat = categories.filter((category) => {
     //   return <p color="#323232">{category}</p>
     // })

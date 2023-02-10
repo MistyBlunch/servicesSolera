@@ -33,7 +33,7 @@ const Index: React.FC<IndexInterface> = () => {
   return (
     <Container className="mt-5">
       <h1 className="h1 text-center">Servicios</h1>
-      <ServicesNav serviceData={serviceData} />
+      <ServicesNav services={allServices} />
       <Row className="mt-4">
         <Col sm={8}>
           <ServicesGrid services={allServices} />

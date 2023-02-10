@@ -10,10 +10,10 @@ const ServicesGrid: React.FC<ServicesGridInterface> = ({
 }: any) => {
   return (
     <div>
-      <Row className="justify-content-between">
+      <Row className="justify-content-around">
         {services.map((service: Service, i: number) => (
           <div key={i} className="mb-4 d-flex w-auto">
-            <Card style={{ width: '16rem' }} className="mr-2">
+            <Card style={{ width: '14rem' }} className="mr-2">
               <Card.Body>
                 <Card.Title>{service.name}</Card.Title>
                 <Card.Text>{service.description}</Card.Text>
