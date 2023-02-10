@@ -1,33 +1,17 @@
 import { Service } from '@/utils/interfaces/service'
-import React, { useEffect, useState, useReducer, useRef } from 'react'
+import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 export interface ServicesGridInterface {
-  serviceData?: {}
+  services?: {}
 }
 
 const ServicesGrid: React.FC<ServicesGridInterface> = ({
-  serviceData,
+  services,
 }: any) => {
-  const [allServices, setsAllServices] = useState([] as Service[])
-  const [, update] = useReducer((x) => x + 1, 0)
-  const effectRan = useRef(false)
-
-  useEffect(() => {
-    if (effectRan.current) {
-      let services: any = allServices
-      services.push(serviceData)
-      setsAllServices(services)
-      update()
-    }
-    return () => {
-      effectRan.current = true
-    }
-  }, [serviceData])
-
   return (
     <div>
       <Row>
-        {allServices.map((service, i) => (
+        {services.map((service: Service, i: number) => (
           <Col sm key={i}>
             <Card style={{ width: '18rem' }} className="mb-3">
               <Card.Body>
