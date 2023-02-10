@@ -10,33 +10,6 @@ const ServicesNav: React.FC<ServicesNavInterface> = ({
   services,
 }: any) => {
   let categories = ['Todos', 'Autos', 'Salud', 'Hogar']
-  let data = [
-    {
-      name: 'a',
-      description: 'a',
-      category: 'a',
-    },
-    {
-      name: 'b',
-      description: 'b',
-      category: 'b',
-    },
-    {
-      name: 'b',
-      description: 'b',
-      category: 'b',
-    },
-    {
-      name: 'c',
-      description: 'c',
-      category: 'c',
-    },
-    {
-      name: 'c',
-      description: 'c',
-      category: 'c',
-    },
-  ]
   let servicesByCat: any[] = []
 
   const filterServicesByCat = (category: string) => {
