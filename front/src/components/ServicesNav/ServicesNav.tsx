@@ -1,27 +1,33 @@
-import { Service } from '@/utils/interfaces/service'
-import React, { useState } from 'react'
+import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 
 export interface ServicesNavInterface {
   services?: {}
+  passAllServices?: {}
 }
 
-const ServicesNav: React.FC<ServicesNavInterface> = ({
-  services,
-}: any) => {
+const ServicesNav: React.FC<ServicesNavInterface> = (
+  { services }: any,
+  props: any
+) => {
   let categories = ['Todos', 'Autos', 'Salud', 'Hogar']
   let servicesByCat: any[] = []
 
   const filterServicesByCat = (category: string) => {
-    console.log('uwu', category, services)
-    // servicesByCat = categories.filter((category) => {
-    //   return <p color="#323232">{category}</p>
-    // })
+    if (category === 'Todos') return services
+    servicesByCat = services.filter(
+      (service: { category: string }) => {
+        console.log(service.category)
+        return service.category === category
+      }
+    )
+
+    return servicesByCat
   }
 
   const selectTypeService = (selectedKey: any) => {
-    console.log(`selected ${selectedKey}`)
-    filterServicesByCat(selectedKey)
+    const services = filterServicesByCat(selectedKey)
+    console.log('servicesFiltered', services)
   }
 
   return (
@@ -29,7 +35,6 @@ const ServicesNav: React.FC<ServicesNavInterface> = ({
       <Navbar bg="light" variant="light">
         <Container>
           <Nav
-            className="me-auto"
             onSelect={(selectedKey) => selectTypeService(selectedKey)}
           >
             {categories.map((opt, i) => (
